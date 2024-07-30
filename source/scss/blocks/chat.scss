@@ -185,4 +185,31 @@
 
 .chat__footer {
   margin-top: auto;
+
+  .form {
+    justify-content: end;
+  }
+
+  .form__field {
+    width: 10%;
+    transition: width 0.3s ease;
+  }
+}
+
+.active {
+  .form__field {
+    width: calc(100% - 21rem);
+
+    @media (orientation: portrait) {
+      width: calc(100% - 5rem);
+    }
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: calc(100% - 9rem);
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      width: calc(100% - 5rem);
+    }
+  }
 }

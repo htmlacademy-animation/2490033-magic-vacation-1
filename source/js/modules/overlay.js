@@ -4,8 +4,10 @@ function show(cb) {
   if (location.hash === `#prizes`) {
     overlay.classList.add(`show`);
     setTimeout(cb, 300);
+    setTimeout(() => {
+      overlay.classList.remove(`show`);
+    }, 500);
   } else {
-    overlay.classList.remove(`show`);
     cb();
   }
 }

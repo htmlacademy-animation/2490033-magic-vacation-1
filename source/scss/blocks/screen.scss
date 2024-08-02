@@ -9,7 +9,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   z-index: 1;
   overflow: hidden;
 
@@ -309,6 +309,10 @@
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
   }
+}
+
+.screen--prizes {
+  background-color: $c-dark;
 }
 
 .screen--game {

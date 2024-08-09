@@ -6,6 +6,36 @@
   padding: 14.6rem 0 13rem;
   width: 100%;
 
+  .btn {
+    &::before {
+      width: 35%;
+      left: 100%;
+      opacity: 0;
+      animation-name: showBtnRules;
+      animation-fill-mode: forwards;
+      animation-duration: 500ms;
+      animation-delay: 800ms;
+      animation-timing-function: ease-out;
+
+      @media (max-width: $tablet) and (orientation: portrait) {
+        width: 100%;
+        left: 50%;
+      }
+    }
+
+    span {
+      opacity: 0;
+      animation-name: showBtnTextRules;
+      animation-fill-mode: forwards;
+      animation-duration: 400ms;
+      animation-delay: 1s;
+
+      @media (max-width: $tablet) and (orientation: portrait) {
+        opacity: 1;
+      }
+    }
+  }
+
   @media (min-width: $stop-scaling) {
     padding: 146px 0 65px;
   }
@@ -20,6 +50,20 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 4rem 0 4rem;
+  }
+
+  @keyframes showBtnRules {
+    to {
+      left: 50%;
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  @keyframes showBtnTextRules {
+    to {
+      opacity: 1;
+    }
   }
 }
 
@@ -159,6 +203,11 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    transform: scale(0);
+    animation-name: showBulletRules;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.68, 0, 0.32, 1.6);
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -179,9 +228,69 @@
 
   p {
     margin: 0;
+    opacity: 0;
+    transform: translateX(15%);
+    animation-name: showTextRules;
+    animation-duration: 300ms;
+
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
+    }
+  }
+
+  &:nth-of-type(1) {
+    &::before {
+      animation-delay: 0s;
+    }
+
+    p {
+      animation-delay: 200ms;
+    }
+  }
+
+  &:nth-of-type(2) {
+    &::before {
+      animation-delay: 200ms;
+    }
+
+    p {
+      animation-delay: 400ms;
+    }
+  }
+
+  &:nth-of-type(3) {
+    &::before {
+      animation-delay: 400ms;
+    }
+
+    p {
+      animation-delay: 600ms;
+    }
+  }
+
+  &:nth-of-type(4) {
+    &::before {
+      animation-delay: 600ms;
+    }
+
+    p {
+      animation-delay: 800ms;
+    }
+  }
+
+  @keyframes showTextRules {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes showBulletRules {
+    to {
+      transform: scale(1);
     }
   }
 }
